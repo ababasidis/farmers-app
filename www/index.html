@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>David H. Wager Agency Contact Form</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/angular-wizard/css/angular-wizard.css" rel="stylesheet">
+    <link type="text/css" href="lib/jqueryui/1.10.3/css/jquery-ui.css" rel="stylesheet"> 
+    <link type="text/css" href="lib/jquery.signature-1.1.2/css/jquery.signature.css" rel="stylesheet">
+    <!-- <link type="text/css" href="lib/ion-google-place/ion-google-place.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="lib/angular-on-screen-keyboard/dist/angular-on-screen-keyboard.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+  </head>
+  <body ng-app="starter">
+    <ion-pane>
+      <div id="load"></div>
+      <section ng-controller="WizardCtrl as contact" class="main" id="contents">
+        <wizard on-finish="finishedWizard()" hide-indicators="true"> 
+            
+            <wz-step wz-title="">
+                <a href="admin.html" class="back-button">Admin</a>
+                <img class="vertical-logo" src="img/Vertical-Color-Logo.png" alt="The David H. Wager Agency, LLC">
+                <p>Please take a minute to answer some quick questions that will help us serve you better.</p>
+                <a 
+                  class="main-button" 
+                  type="submit" 
+                  wz-next="" 
+                  ng-click="focusFirstName()">
+                Start</a>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>What is your first name?</h1>
+
+                <div class="row input-row">
+                  <div class="col">
+                    <input 
+                      type="text" 
+                      placeholder="First" 
+                      id="firstname" 
+                      ng-model="contact.firstname" 
+                      required>
+                  </div>
+                  <div class="col-5" ng-if="contact.firstname!=null">
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next=""  
+                      ng-click="focusLastName()">
+                      Next  </a>
+                  </div>
+                </div>
+                <on-screen-keyboard rows='[["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "@",{type:"erase", colspan: 2, text: "&lArr;"}], [{ type: "shift" },"a", "s", "d", "f", "g", "h", "j", "k", "l", "-", "_",{ type: "shift" }], [{ type: "space", colspan: 2, text: " " }, "z", "x", "c", "v", "b", "n", "m", ",", ".", { type: "space", colspan: 2, text: " " }]]' uppercase-all-words></on-screen-keyboard>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>What is your last name, {{contact.firstname}}?</h1>
+
+                <div class="row input-row">
+                  <div class="col">
+                    <input type="text" 
+                      placeholder="Last" 
+                      id="lastname" 
+                      ng-model="contact.lastname" 
+                      required>
+                  </div>
+                  <div class="col-5" ng-if="contact.lastname!=null">
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next=""
+                      ng-click="focusEmail()">
+                    Next </a>
+                  </div>
+                </div>
+                <on-screen-keyboard rows='[["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "@",{type:"erase", colspan: 2, text: "&lArr;"}], [{ type: "shift" },"a", "s", "d", "f", "g", "h", "j", "k", "l", "-", "_",{ type: "shift" }], [{ type: "space", colspan: 2, text: " " }, "z", "x", "c", "v", "b", "n", "m", ",", ".", { type: "space", colspan: 2, text: " " }]]' uppercase-all-words></on-screen-keyboard>
+            </wz-step>
+
+            <wz-step wz-title="">
+                 <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>How may we contact you, {{contact.firstname | capitalize}}?</h1>
+
+                <div class="row input-row">
+                  <div class="col">
+                    <input 
+                      type="text" 
+                      placeholder="Email" 
+                      id="email" 
+                      ng-model="contact.email" 
+                      required>
+                  </div>
+
+                  <div class="col-5" ng-if="contact.email!=null">
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next="" 
+                      ng-click="focusPhone()">
+                    Next</a>
+                  </div>
+                </div>
+                <on-screen-keyboard></on-screen-keyboard>
+            </wz-step>
+
+            <wz-step wz-title="">
+                 <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>How may we contact you, {{contact.firstname | capitalize}}?</h1>
+                <div class="row input-row">
+                  <div class="col">
+                    <input 
+                      type="text" 
+                      placeholder="Phone" 
+                      id="phone" 
+                      ng-model="contact.phone"
+                      required>
+                  </div>
+                  <div class="col-5" ng-if="contact.phone!=null">
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next="" >
+                    Next</a>
+                  </div>
+                </div>
+                <on-screen-keyboard rows='[["1","2","3"],["4","5","6"],["7","8","9"],["0",{type:"erase",colspan: 1,
+              text: "&lArr;"}]]'></on-screen-keyboard>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>What is your date of birth?</h1>
+                <div class="row dob input-row">
+                  <div class="col">
+                    <select 
+                      ng-options="m as m for m in months" 
+                      ng-model="monthselect"></select>
+                  </div>
+                  <div class="col">
+                    <select 
+                      ng-options="d as d for d in days" 
+                      ng-model="dayselect"></select>
+                  </div>
+                  <div class="col">
+                    <select 
+                      ng-options="y as y for y in years" 
+                      ng-model="yearselect"></select>
+                  </div>
+                </div>
+                <div class="button-wrapper">
+                  <a 
+                    class="main-button" 
+                    type="submit" 
+                    wz-next="" 
+                    ng-click="focusStreet()">
+                  Next</a>
+                </div>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>Where do you currently live?</h1>
+                <div class="row input-row">
+                  <div class="col">
+                    <input 
+                      id="street" 
+                      type="text" 
+                      ng-model="contact.street" 
+                      placeholder="191 W Main St">
+                  </div>
+                  <div class="col-5">
+
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next="" 
+                      ng-if="contact.street!=null"
+                      ng-click="focusCity()">
+                    Next</a>
+                  </div>
+                </div>
+                                
+                <on-screen-keyboard></on-screen-keyboard>                
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>What state and city do you live in?</h1>
+                <div class="row input-row">
+                  <div class="col">
+                    <select ng-model="stateselect" ng-options="item as item for item in states"></select>
+                  </div>
+                  <div class="col">
+                    <input 
+                      id="city" 
+                      type="text" 
+                      ng-model="contact.city" 
+                      placeholder="Victor">
+                  </div>
+                  <div class="col-5">
+                    <a 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next="" 
+                      ng-click="focusZIP()"
+                      ng-if="contact.city!=null">
+                    Next</a>
+                  </div>
+                </div>
+                <on-screen-keyboard></on-screen-keyboard>                
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>Please enter your Postal code</h1>
+                <div class="row input-row">
+                  <div class="col">
+                    <input 
+                      id="zip" 
+                      type="text" 
+                      ng-model="contact.zip" 
+                      placeholder="14564">
+                  </div>
+                  <div class="col-5">
+                    <input 
+                      class="farmers-button right margin-none" 
+                      type="submit" 
+                      wz-next="" 
+                      value="Next" 
+                      ng-if="contact.zip!=null">
+                  </div>
+                </div>
+                <on-screen-keyboard rows='[["1","2","3"],["4","5","6"],["7","8","9"],["0",{type:"erase",colspan: 1,
+                text: "&lArr;"}]]'></on-screen-keyboard>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <a class="back-button" wz-previous=""><img src="img/BackButton.png" alt="Back"></a>
+                <a class="restart-button" wz-reset="finished()"><img src="img/RestartButton.png" alt="Start Over"></a>
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                <h1>Who are your current insurance carriers?</h1>
+                <div class="insurance-selector" ng-init="contact.allstate=false;contact.nycm=false;contact.statefarm=false;contact.geico=false;contact.progressive=false;contact.erie=false;contact.nationwide=false;contact.metlife=false;contact.libertymutual=false;contact.other=false;contact.hideotherbox=false;">
+                  <div class="row">
+                    <div class="col" ng-model="contact.allstate" ng-click="contact.allstate=true" ng-hide="contact.allstate==true"> 
+                      Allstate
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.allstate=false" ng-model="contact.allstate" ng-hide="contact.allstate==false"> 
+                      Allstate
+                    </div>
+                    <div class="col" ng-model="contact.nycm" ng-click="contact.nycm=true" ng-hide="contact.nycm==true"> 
+                      NYCM
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.nycm=false" ng-model="contact.nycm" ng-hide="contact.nycm==false"> 
+                      NYCM
+                    </div>
+                    <div class="col" ng-model="contact.statefarm" ng-click="contact.statefarm=true" ng-hide="contact.statefarm==true"> 
+                      State Farm
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.statefarm=false" ng-model="contact.statefarm" ng-hide="contact.statefarm==false"> 
+                      State Farm
+                    </div>
+                    <div class="col" ng-model="contact.geico" ng-click="contact.geico=true" ng-hide="contact.geico==true"> 
+                      Geico
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.geico=false" ng-model="contact.geico" ng-hide="contact.geico==false"> 
+                      Geico
+                    </div>
+                    <div class="col" ng-model="contact.progressive" ng-click="contact.progressive=true" ng-hide="contact.progressive==true"> 
+                      Progressive
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.progressive=false" ng-model="contact.progressive" ng-hide="contact.progressive==false"> 
+                      Progressive
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col" ng-model="contact.erie" ng-click="contact.erie=true" ng-hide="contact.erie==true"> 
+                      Erie
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.erie=false" ng-model="contact.erie" ng-hide="contact.erie==false"> 
+                      Erie
+                    </div>
+                    <div class="col" ng-model="contact.nationwide" ng-click="contact.nationwide=true" ng-hide="contact.nationwide==true"> 
+                      Nationwide
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.nationwide=false" ng-model="contact.nationwide" ng-hide="contact.nationwide==false"> 
+                      Nationwide
+                    </div>
+                    <div class="col" ng-model="contact.metlife" ng-click="contact.metlife=true" ng-hide="contact.metlife==true"> 
+                      Met Life
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.metlife=false" ng-model="contact.metlife" ng-hide="contact.metlife==false"> 
+                      Met Life
+                    </div>
+                    <div class="col" ng-model="contact.libertymutual" ng-click="contact.libertymutual=true" ng-hide="contact.libertymutual==true"> 
+                      Liberty Mutual
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.libertymutual=false" ng-model="contact.libertymutual" ng-hide="contact.libertymutual==false"> 
+                      Liberty Mutual
+                    </div>
+                    <div class="col" ng-model="contact.other" ng-click="contact.other=true; focusOtherInsurance()" ng-hide="contact.other==true"> 
+                      Other
+                    </div>
+                    <div class="col insurance-selector-selected" ng-click="contact.other=false;contact.hideotherbox=false;" ng-model="contact.other" ng-hide="contact.other==false"> 
+                      Other
+                    </div>
+                  </div>
+                  <p ng-if="contact.otherinsurance!=null">Other Insurance: {{contact.otherinsurance}}</p>
+                  <div class="button-wrapper">
+                    <a 
+                      class="main-button" 
+                      type="submit" 
+                      wz-next="" >
+                    Next</a>
+                  </div>
+                  <div class="other-insurance" ng-show="contact.other==true && contact.hideotherbox==false">
+                    <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                    <h1>Please enter any other carriers</h1>
+                    
+                    <div class="row input-row">
+                      <div class="col">
+                        <input type="text" ng-model="contact.otherinsurance" placeholder="Enter Insurance Carriers" id="otherinsurance"/>
+                      </div>
+                      <div class="col-5" ng-if="contact.otherinsurance!=null">
+                        <a class="farmers-button right margin-none" ng-click="contact.hideotherbox=true">Enter</a>
+                      </div>
+                    </div>
+                    <p>Seperated by space or  semicolon (;)</p>
+                    <div class="row popout-keyboard">  
+                      <on-screen-keyboard rows='[["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "@",{type:"erase", colspan: 2, text: "&lArr;"}], [{ type: "shift" },"a", "s", "d", "f", "g", "h", "j", "k", "l", "-", "_",{ type: "shift" }], [{ type: "space", colspan: 2, text: " " }, "z", "x", "c", "v", "b", "n", "m", ";", ".", { type: "space", colspan: 2, text: " " }]]' uppercase-all-words></on-screen-keyboard>
+                    </div>
+                  </div>
+                </div>
+            </wz-step>
+
+            <wz-step wz-title="">
+                <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC">
+                  <h1>Terms &amp; Conditions</h1>
+                  <p>
+                  By entering your email address, you are opting in to receive marketing
+                  emails or phone calls from us. This will allow us to communicate with you via
+                  email or phone which could include newsletters, product information and updates
+                  or special offers.<br><br>
+                  
+                  My signature authorizes you to contact me about Farmers products and
+                  services. <br><br>
+                  
+                  You may withdraw your consent at any time by clicking the unsubscribe
+                  link contained in our emails. <br><br>
+                  Thank you.
+                  </p>
+                <input 
+                  class="agree-button" 
+                  type="submit" 
+                  wz-next="" 
+                  value="I AGREE"> <br><br>
+                <input 
+                  type="submit" 
+                  wz-cancel="" 
+                  value="Edit my Information" 
+                  class="secondary-button"> | 
+                <input 
+                  type="submit" 
+                  wz-reset="finished()" 
+                  value="I Disagree" 
+                  class="secondary-button">
+            </wz-step>
+
+            <wz-step wz-title="" ng-init="isFinished=false">
+                <div ng-hide="isFinished==true">
+                  <img class="horizontal-logo" src="img/Horizontal-Color-Logo.png" alt="The David H. Wager Agency, LLC"><br/>
+                  <h1>Please sign below, {{contact.firstname | capitalize}}</h1>
+                  <div id="signature-div"> 
+                  </div>
+                  <br>
+                  <input 
+                    id="clear" 
+                    class="clear-button secondary-button" 
+                    value="Clear">
+                  <input 
+                    id="submit-signature" 
+                    class="main-button" 
+                    type="submit" 
+                    wz-finish="isFinished=true; submitForm(contact.firstname, contact.lastname, contact.email, contact.phone, monthselect, dayselect, yearselect, contact.street, stateselect, contact.city, contact.zip, contact.otherinsurance, contact.allstate, contact.statefarm, contact.geico, contact.progressive, contact.nycm, contact.erie, contact.nationwide, contact.metlife, contact.libertymutual, contact.other);" 
+                    value="Submit">
+                </div>
+                <a id="reset" wz-reset="isFinished=false; finished()">
+                  <div ng-show="isFinished==true">
+                    <img class="vertical-logo" src="img/Vertical-Color-Logo.png" alt="The David H. Wager Agency, LLC">
+                    <p>Thanks! Your input is valuable to us.
+                    <br><br>Click anywhere to start over.</p>
+                  </div>
+                </a>
+            </wz-step>
+        </wizard>
+        </section>
+      
+    </ion-pane>
+
+    <!-- jquery-ui js -->
+    <script type="text/javascript" src="lib/jquery/1.11.0/js/jquery.min.js"></script> 
+    <script type="text/javascript" src="lib/jqueryui/1.10.3/js/jquery-ui.min.js"></script>
+
+    <!-- jquery-touch js -->
+    <script type="text/javascript" src="lib/jqueryui-touch-punch/0.2.3/js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- angular-wizard js -->
+    <script src="lib/angular-wizard/js/angular-wizard.js"></script>
+
+    <!-- jquery-signature js -->
+    <script type="text/javascript" src="lib/jquery.signature-1.1.2/js/jquery.signature.js"></script>
+
+    <!--[if IE]> 
+    <script type="text/javascript" src="lib/jquery.signature-1.1.2/js/excanvas.js"></script> 
+    <![endif]-->
+
+    <script type="text/javascript" src="lib/angular-on-screen-keyboard/dist/angular-on-screen-keyboard.js"></script>
+
+    <!-- google maps api js -->
+    <!-- ONLY FOR USE WITH INTERNET CONNECTION -->
+    <!-- <script type="text/javascript" src="lib/ion-google-place/ion-google-place.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBWTSh9JSbhY0zuZuKXRI-5mlVXkuSq8LQ&amp;libraries=places&amp;sensor=false"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/scripts.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

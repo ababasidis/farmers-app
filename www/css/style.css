@@ -1,0 +1,272 @@
+h1
+{
+	margin: 3%;
+}
+#firstname, #lastname, #email, #phone, #address, #date, #street, #city, #zip, #state, .password, #otherinsurance, #password, select
+{
+	border: 1px solid #95989A;
+	border-radius: 2px;
+	font-size: 20px;
+	height: 65px;
+	text-align: center;
+	text-align-last: center;
+	width: 100%;
+}
+#load
+{
+	background: url("../img/progress.gif") no-repeat center center rgba(0,0,0,0);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+#street
+{
+	margin-top: 0 !important;
+}
+#street, #city, #zip, #state, #otherinsurance
+{
+	margin: 0 !important;
+}
+.admin-bar
+{
+	padding: 0 0 2% 0;
+	text-align: center;
+	width: 100%;
+}
+.admin-bar .col-25
+{
+	background: #E01933;
+}
+.admin-bar a
+{
+	color: #FFFFFF;
+	font-size: 20px;
+	margin-top: 10%;
+	text-decoration: none;
+	width: 100%;
+}
+.admin-button
+{
+	left: 5%;
+	position: fixed;
+	top: 88%;
+}
+.admin-img
+{
+	text-align: center;
+}
+.admin-output
+{
+	padding: 5%;
+}
+.agree-button
+{
+	background: #4CD964;
+	border: none;
+	box-shadow: 2px 2px 8px gray;
+	color: #FFFFFF;
+	font-size: 150%;
+	padding: 2% 8%;
+}
+.back-button
+{
+	left: 5%;
+	position: fixed;
+	text-decoration: none;
+	top: 5%;
+}
+.back-button img, .restart-button img {
+	width: 60px;
+}
+.btn
+{
+	background-color: gray;
+	border: solid 1px black;
+	border-radius: 3px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	margin-left: 5px;
+	text-align: center;
+	width: 25px;
+}
+.btn:hover
+{
+	background-color: aliceblue;
+}
+.button-wrapper 
+{
+	margin: 5%;
+}
+.clear-button
+{
+	text-align: center;
+	width: 100%;
+}
+.container
+{
+	background-color: #F8F8F8;
+	display: inline-block;
+	padding: 15px;
+	text-align: center;
+}
+.date-field
+{
+	border: none;
+	height: 65px;
+	margin: 5% 0px;
+}
+.dob select
+{
+	margin: 0 auto;
+}
+.farmers-button
+{
+	background: #E01933;
+	border: none;
+	box-shadow: 2px 2px 8px gray;
+	color: #FFFFFF;
+	font-size: 150%;
+	height: 65px;
+	width: 120px;
+	padding: 15%;
+}
+.fixed
+{
+	left: 45%;
+	position: fixed;
+	top: 60%;
+}
+.focused
+{
+	border: 2px solid !important;
+}
+.horizontal-logo
+{
+	display: block;
+    float: left;
+    margin: 3% 100% 3% 39%;
+    /* padding: 10px; */
+    width: 20%;
+}
+.input-row 
+{
+	padding: 0px 50px;
+}
+.insurance-selector
+{
+	margin: 2% 0px 2% 0px;
+}
+.insurance-selector .col
+{
+	background: #B4C4EA;
+	box-shadow: 2px 2px 8px gray;
+	color: #FFFFFF;
+	margin: 1%;
+	padding: 2%;
+}
+.insurance-selector-selected
+{
+	background: #003087 !important;
+}
+.keyboard-container
+{
+	display: inline-block;
+	text-align: center;
+}
+.keyboard-container ul
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-left: 0;
+}
+.large
+{
+	font-size: 400%;
+}
+.main
+{
+	color: #95989A;
+	margin: 0;
+	text-align: center;
+}
+.main p
+{
+	margin: 5%;
+}
+.main-button
+{
+	background: #E01933;
+	border: none;
+	box-shadow: 2px 2px 8px gray;
+	color: #FFFFFF;
+	font-size: 150%;
+	padding: 2% 5%;
+}
+.margin-none
+{
+	margin: 0 !important;
+	margin-top: 5% !important;
+}
+.other-insurance
+{
+	background: #FFFFFF;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.other-insurance .col
+{
+	background: none;
+	box-shadow: none;
+	margin: 0;
+	padding: 0; 
+}
+.other-insurance p {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.other-insurance .margin-none
+{
+	margin-top: 0% !important;
+	padding: 20px;
+}
+.restart-button
+{
+	left: 88%;
+	position: fixed;
+	top: 5%;
+}
+.right
+{
+	float: right;
+}
+.secondary-button
+{
+	background: none;
+	border: none;
+	margin: 5px;
+}
+.vertical-logo
+{
+	margin-top: 10%;
+	width: 30%;
+}
+.warning p
+{
+	color: #E01933;
+	left: 42%;
+	margin: 0;
+	position: fixed;
+	top: 80%;
+}
+@media (max-height: 680px)
+{
+	.warning p
+	{
+		left: 40%;
+		top: 87%;
+	}
+}

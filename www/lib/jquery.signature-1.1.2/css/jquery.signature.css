@@ -1,0 +1,8 @@
+/* Styles for signature plugin v1.1.2. */
+.kbw-signature {
+	display: inline-block;
+	border: 1px solid #95989A;
+	width: 600px;
+	height: 250px;
+	-ms-touch-action: none;
+}

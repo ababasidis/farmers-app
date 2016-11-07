@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/angular-wizard/css/angular-wizard.css" rel="stylesheet">
+    <link type="text/css" href="lib/jqueryui/1.10.3/css/jquery-ui.css" rel="stylesheet"> 
+    <link type="text/css" href="lib/jquery.signature-1.1.2/css/jquery.signature.css" rel="stylesheet">
+    <!-- <link type="text/css" href="lib/ion-google-place/ion-google-place.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="lib/angular-on-screen-keyboard/dist/angular-on-screen-keyboard.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+  </head>
+  <body ng-app="starter">
+    <ion-pane>
+      <div id="load"></div>
+      <section ng-controller="WizardCtrl as admin" id="contents">
+        <section ng-hide="admin.password=='8077'" class="input-row">
+          <a ng-click="password=null" href="index.html" class="back-button"><i class="ion-chevron-left"></i> Return to App</a>
+          <div class="admin-img">
+            <img class="vertical-logo" src="img/Vertical-Color-Logo.png" alt="The David H. Wager Agency, LLC">
+          </div>
+          <input
+            type="text" 
+            placeholder="Enter Password" 
+            ng-model="admin.password" 
+            id="password"> 
+          <on-screen-keyboard rows='[["1","2","3"],["4","5","6"],["7","8","9"],["0",{type:"erase",colspan: 1,
+              text: "&lArr;"}]]'></on-screen-keyboard>
+        </section>
+        <section ng-show="admin.password=='8077'" ng-init="loadStorage(); checkConnectionActive();">
+            <div class="row admin-bar">
+              <div class="col-25">
+                <a ng-click="sendAsCSV()" class="admin-sidebar-button"><i class="large ion-paper-airplane"></i><br/>Send CSV</a>
+              </div>
+              <div class="col-25">
+                <a ng-click="replyAll()" class="admin-sidebar-button"><i class="large ion-reply-all"></i><br/>Send Thank You Emails</a>
+              </div>
+              <div class="col-25">
+                <a ng-click="clearLocalStorage()" class="admin-sidebar-button"><i class="large ion-ios-trash"></i><br/>Clear Local Storage</a>
+              </div>
+              <div class="col-25"> 
+                 <a ng-click="password=null" href="index.html" class="admin-sidebar-button"><i class="large ion-android-arrow-back"></i></br>Return to App</a>
+              </div>
+            </div>
+            <div class="row admin-output">
+              <ion-scroll zooming="true" direction="y" style="height:450px;padding:5%;">
+              <h2>CSV Record</h2>
+              <div id="csvimporthint"></div>
+              <h2>Email Record</h2>
+              <div id="replyemails"></div>
+              </ion-scroll>
+            </div>
+        </section>
+      </section>
+    </ion-pane>
+
+    <!-- jquery-ui js -->
+    <script type="text/javascript" src="lib/jquery/1.11.0/js/jquery.min.js"></script> 
+    <script type="text/javascript" src="lib/jqueryui/1.10.3/js/jquery-ui.min.js"></script>
+
+    <!-- jquery-touch js -->
+    <script type="text/javascript" src="lib/jqueryui-touch-punch/0.2.3/js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- angular-wizard js -->
+    <script src="lib/angular-wizard/js/angular-wizard.js"></script>
+
+
+    <!-- jquery-signature js -->
+    <script type="text/javascript" src="lib/jquery.signature-1.1.2/js/jquery.signature.js"></script>
+
+    <!--[if IE]> 
+    <script type="text/javascript" src="lib/jquery.signature-1.1.2/js/excanvas.js"></script> 
+    <![endif]-->
+
+    <script type="text/javascript" src="lib/angular-on-screen-keyboard/dist/angular-on-screen-keyboard.js"></script>
+
+
+    <!-- google maps api js -->
+    <!-- ONLY FOR USE WITH INTERNET CONNECTION -->
+    <!-- <script type="text/javascript" src="lib/ion-google-place/ion-google-place.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBWTSh9JSbhY0zuZuKXRI-5mlVXkuSq8LQ&amp;libraries=places&amp;sensor=false"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/scripts.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
